@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Microsoft Sign-In Certificate Validator",
+  "version": "1.0.0",
+  "description": "Validates that Microsoft sign-in pages use legitimate certificates and haven't been tampered with",
+  "permissions": [
+    "webRequest",
+    "webNavigation",
+    "tabs",
+    "storage",
+    "debugger"
+  ],
+  "host_permissions": [
+    "https://login.microsoftonline.com/*",
+    "https://login.live.com/*",
+    "https://login.windows.net/*",
+    "https://account.microsoft.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://login.microsoftonline.com/*",
+        "https://login.live.com/*",
+        "https://login.windows.net/*",
+        "https://account.microsoft.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

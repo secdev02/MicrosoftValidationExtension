@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 400px;
+      min-height: 300px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      color: #333;
+      background: #f8f9fa;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .header p {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    
+    .content {
+      padding: 20px;
+    }
+    
+    .status-card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .status-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .status-icon {
+      font-size: 24px;
+      margin-right: 12px;
+    }
+    
+    .status-text h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    
+    .status-text p {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .status-valid {
+      color: #28a745;
+    }
+    
+    .status-invalid {
+      color: #dc3545;
+    }
+    
+    .status-warning {
+      color: #ff9800;
+    }
+    
+    .checks-list {
+      margin-top: 12px;
+      border-top: 1px solid #e9ecef;
+      padding-top: 12px;
+    }
+    
+    .check-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+    
+    .check-icon {
+      width: 20px;
+      margin-right: 8px;
+      text-align: center;
+    }
+    
+    .check-name {
+      flex: 1;
+      font-weight: 500;
+    }
+    
+    .check-detail {
+      color: #666;
+      font-size: 12px;
+      margin-left: 28px;
+      margin-top: -4px;
+      padding-bottom: 4px;
+    }
+    
+    .info-box {
+      background: #e7f3ff;
+      border-left: 4px solid #0078d4;
+      padding: 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 16px;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+    }
+    
+    .loading-spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #0078d4;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .not-ms-domain {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+    }
+    
+    .not-ms-domain .icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0078d4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    
+    button:hover {
+      background: #005a9e;
+    }
+    
+    .timestamp {
+      font-size: 11px;
+      color: #999;
+      text-align: center;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Microsoft Certificate Validator</h1>
+    <p>TLS Certificate Security Check</p>
+  </div>
+  
+  <div class="content">
+    <div id="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Validating certificate...</p>
+    </div>
+    
+    <div id="result" style="display: none;"></div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
