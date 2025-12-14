@@ -5,6 +5,15 @@
 ### Step 1: Download the Extension
 Download the entire `microsoft-cert-validator` folder to your computer.
 
+**Optional - Verify Installation:**
+Before loading the extension, you can verify all files are present:
+```bash
+cd microsoft-cert-validator
+python3 verify.py
+```
+
+This will check that all required files are present and valid.
+
 ### Step 2: Open Chrome Extensions
 1. Open Google Chrome
 2. Type `chrome://extensions/` in the address bar and press Enter
@@ -67,6 +76,22 @@ This extension:
 - Compromised network
 
 ## Need Help?
+
+### Common Issues
+
+**Error: "Could not load icon" or "Could not load manifest"**
+- See TROUBLESHOOTING.md for detailed solutions
+- Run `python3 verify.py` to check for file issues
+- Make sure all files extracted properly from the download
+
+**Extension not appearing after install:**
+- Check that Developer mode is enabled
+- Try refreshing the extensions page
+- Look for error messages in red text
+
+For detailed troubleshooting steps, see the TROUBLESHOOTING.md file included with the extension.
+
+### Full Documentation
 
 See the full README.md for:
 - Detailed troubleshooting
